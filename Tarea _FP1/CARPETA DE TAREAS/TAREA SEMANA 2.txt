@@ -3,8 +3,7 @@ P1
 /*[Leadizon]Si la condicio se cumple ,muestra los valores de R,T y Q.
 De lo contrario ,indica que no cumplen la condicion.*/
 
-#include <stdio.h>
-#include <math.h>
+
 
 int main(void) {
 	double RES;
@@ -36,7 +35,7 @@ Al recibir como dato un número entero,
 determinar e imprimir si el mismo es par, impar o nulo.
 */
 
-#include <stdio.h>
+
 
 int main(void) {
     int NUM;
