@@ -189,7 +189,6 @@ Tabla de precios por 60 segundos:
 20 oceania          0.28
 */
 
-#include <stdio.h>
 
 int main(void) {
 	int CLA, TIE;
@@ -261,7 +260,7 @@ Descuentos:
 - Menores de 25 años: 15%
 */
 
-#include <stdio.h>
+
 
 int main(void) {
     int TRA, EDA, DIA;
@@ -318,7 +317,6 @@ ANT -> antigüedad en años (entero)
 SAL -> salario del trabajador (real, no usado en la condición)
 */
 
-#include <stdio.h>
 
 int main(void) {
     int CLA, CAT, ANT, RES;
