@@ -1,0 +1,880 @@
+
+P1
+
+/*Permitir generar la tabla de multiplicar de un número entero positivo N, comenzando desde 1.*/
+
+
+
+int main() {
+    int N, i;
+    
+    printf("Ingrese un numero entero positivo: ");
+    scanf("%d", &N);
+    
+    if (N <= 0) {
+        printf("El numero debe ser positivo.\n");
+        return 1;
+    }
+    
+    printf("Tabla de multiplicar del %d:\n", N);
+    for (i = 1; i <= 10; i++) {
+        printf("%d x %d = %d\n", N, i, N * i);
+    }
+    
+    return 0;
+}
+
+
+
+P2 
+
+/* Al recibir
+como dato un número entero N, calcule el resultado de la siguiente serie:
+
+S = 1 + 1/2 + 1/3 + 1/4 + ... + 1/N
+*/
+
+
+int main() {
+    int N, i;
+    float suma = 0.0;
+    
+    printf("Ingrese N: ");
+    scanf("%d", &N);
+    
+    for (i = 1; i <= N; i++) {
+        suma += 1.0 / i;
+    }
+    
+    printf("El resultado de la serie es: %.4f\n", suma);
+    
+    return 0;
+}
+
+
+
+P3
+
+/*Al recibir
+como dato un número entero N, calcule el resultado de la siguiente serie:
+
+1/1 * 1/2 * 1/3 *1/4* ... * 1/N
+*/
+
+
+
+int main() {
+    int N, i;
+    float producto = 1.0;
+    
+    printf("Ingrese N: ");
+    scanf("%d", &N);
+    
+    for (i = 1; i <= N; i++) {
+        producto *= 1.0 / i;
+    }
+    
+    printf("El resultado de la serie es: %.6f\n", producto);
+    
+    return 0;
+}
+
+
+P4
+
+
+/*Al recibir como datos N números naturales, determine cuántos de ellos son positivos,
+negativos o nulos.
+
+Datos de entrada:
+- N: cantidad de números a evaluar
+- NUMi: cada número ingresado por el usuario
+
+Salida:
+- Cantidad de números positivos
+- Cantidad de números negativos
+- Cantidad de números nulos
+*/
+
+
+
+int main() {
+    int N, i, num;
+    int positivos = 0, negativos = 0, nulos = 0;
+    
+    printf("Cuantos numeros ingresara? ");
+    scanf("%d", &N);
+    
+    for (i = 1; i <= N; i++) {
+        printf("Ingrese el numero %d: ", i);
+        scanf("%d", &num);
+        
+        if (num > 0)
+            positivos++;
+        else if (num < 0)
+            negativos++;
+        else
+            nulos++;
+    }
+    
+    printf("\nResultados:\n");
+    printf("Positivos: %d\n", positivos);
+    printf("Negativos: %d\n", negativos);
+    printf("Nulos: %d\n", nulos);
+    
+    return 0;
+}
+
+
+P5 
+
+/*
+Calcular e imprimir la productoria
+de los N primeros números naturales.
+
+Dato de entrada:
+- N: número entero positivo que indica hasta dónde
+  se calculará la productoria.
+
+
+- Se multiplica consecutivamente cada número desde 1 hasta N.
+
+
+- El resultado de la productoria (equivalente a N!).
+*/
+
+Tarea 4
+
+
+int main() {
+    int N, i;
+    long long producto = 1;  
+
+    printf("Ingrese un numero entero positivo: ");
+    scanf("%d", &N);
+
+    for (i = 1; i <= N; i++) {
+        producto *= i;
+    }
+
+    printf("La productoria de los %d primeros numeros naturales es: %lld\n", N, producto);
+
+    return 0;
+}
+
+
+P6
+
+/*Al recibir como datos el peso, la altura y el sexo de N personas que pertenecen a un estado de la República Mexicana, obtenga el promedio del peso edad ≥ 18 y el
+promedio de la altura edad ≥ 18, tanto de la población masculina como de la
+femenina. 
+*/
+
+int main() {
+    int N, i, sexo, edad;
+    float peso, altura;
+    float sumaPesoHombres = 0, sumaAlturaHombres = 0;
+    float sumaPesoMujeres = 0, sumaAlturaMujeres = 0;
+    int contHombres = 0, contMujeres = 0;
+
+    printf("Ingrese el numero de personas: ");
+    scanf("%d", &N);
+
+    for (i = 1; i <= N; i++) {
+        printf("\nPersona %d:\n", i);
+        printf("Edad: ");
+        scanf("%d", &edad);
+        printf("Peso: ");
+        scanf("%f", &peso);
+        printf("Altura: ");
+        scanf("%f", &altura);
+        printf("Sexo (1=Hombre, 0=Mujer): ");
+        scanf("%d", &sexo);
+
+        if (edad >= 18) {
+            if (sexo == 1) {
+                sumaPesoHombres += peso;
+                sumaAlturaHombres += altura;
+                contHombres++;
+            } else {
+                sumaPesoMujeres += peso;
+                sumaAlturaMujeres += altura;
+                contMujeres++;
+            }
+        }
+    }
+
+    if (contHombres > 0) {
+        printf("\nPromedio peso hombres: %.2f", sumaPesoHombres / contHombres);
+        printf("\nPromedio altura hombres: %.2f", sumaAlturaHombres / contHombres);
+    } else {
+        printf("\nNo hay hombres mayores de 18.\n");
+    }
+
+    if (contMujeres > 0) {
+        printf("\nPromedio peso mujeres: %.2f", sumaPesoMujeres / contMujeres);
+        printf("\nPromedio altura mujeres: %.2f", sumaAlturaMujeres / contMujeres);
+    } else {
+        printf("\nNo hay mujeres mayores de 18.\n");
+    }
+
+    return 0;
+}
+
+
+
+P7
+
+
+/*Al recibir
+como dato un número entero N, obtenga el resultado de la siguiente serie:
+11 - 22 + 33 - . . . + NN*/
+
+#include <stdio.h>
+
+int main() {
+    int N, i;
+    int resultado = 0;
+    int termino;
+
+    printf("Ingrese el valor de N: ");
+    scanf("%d", &N);
+
+    for (i = 1; i <= N; i++) {
+        termino = i * 11;
+        if (i % 2 == 1) { // impar → suma
+            resultado += termino;
+        } else {          // par → resta
+            resultado -= termino;
+        }
+    }
+
+    printf("El resultado de la serie es: %d\n", resultado);
+
+    return 0;
+}
+
+
+
+
+P8
+
+
+
+/*Al recibir
+como datos N valores de Y, obtenga el resultado de la siguiente función:
+
+F(X) = 
+
+   Y^2 + 15        si 0 < Y <= 15
+   Y^3 - Y^2 + 12  si 15 < Y <= 30
+   (4 * Y^3 / Y^2) + 8   si 30 < Y <= 60
+   0               si Y > 60 o Y <= 0
+*/
+
+
+
+
+int main() {
+    int N, i, Y;
+    float resultado;
+
+    printf("Ingrese el numero de valores N: ");
+    scanf("%d", &N);
+
+    for (i = 1; i <= N; i++) {
+        printf("\nIngrese el valor Y%d: ", i);
+        scanf("%d", &Y);
+
+        if (Y > 0 && Y <= 15) {
+            resultado = (Y * Y) + 15;
+        } else if (Y > 15 && Y <= 30) {
+            resultado = (Y * Y * Y) - (Y * Y) + 12;
+        } else if (Y > 30 && Y <= 60) {
+            resultado = (4.0 * (Y * Y * Y) / (Y * Y)) + 8;
+        } else {
+            resultado = 0;
+        }
+
+        printf("F(X) para Y%d = %.2f\n", i, resultado);
+    }
+
+    return 0;
+}
+
+
+
+
+
+P9 
+
+#define REGIONES 6
+#define MESES 12
+
+
+/*En el centro meteorológico ubicado en Baja California Sur, en México, llevan los
+registros de los promedios mensuales de temperaturas de las principales regiones
+del país. Existen seis regiones denominadas NORTE, CENTRO, SUR, GOLFO, PACÍFICO
+y CARIBE.
+
+a.El promedio anual de cada región. 
+b. El mes y registro con la mayor y menor temperaturas, y que además indique a
+qué zona pertenecen estos registros. 
+c. Determinar cuál de las regiones SUR, PACÍFICO y CARIBE tienen el mayor promedio de temperatura anual.
+*/
+
+int main() {
+    float temp[REGIONES][MESES];
+    char *nombres[REGIONES] = {"NORTE", "CENTRO", "SUR", "GOLFO", "PACIFICO", "CARIBE"};
+    float suma[REGIONES] = {0};
+    float promedio[REGIONES];
+    float maxTemp = -9999, minTemp = 9999;
+    int maxRegion = -1, minRegion = -1;
+    int maxMes = -1, minMes = -1;
+
+    // Lectura de datos
+    for (int r = 0; r < REGIONES; r++) {
+        printf("\nIngrese las 12 temperaturas de la region %s:\n", nombres[r]);
+        for (int m = 0; m < MESES; m++) {
+            printf("Mes %d: ", m+1);
+            scanf("%f", &temp[r][m]);
+            suma[r] += temp[r][m];
+
+            // Verificar max y min
+            if (temp[r][m] > maxTemp) {
+                maxTemp = temp[r][m];
+                maxRegion = r;
+                maxMes = m+1;
+            }
+            if (temp[r][m] < minTemp) {
+                minTemp = temp[r][m];
+                minRegion = r;
+                minMes = m+1;
+            }
+        }
+    }
+
+    // Calcular promedios
+    for (int r = 0; r < REGIONES; r++) {
+        promedio[r] = suma[r] / MESES;
+        printf("\nPromedio anual de %s: %.2f", nombres[r], promedio[r]);
+    }
+
+    // Mostrar max y min
+    printf("\n\nMayor temperatura: %.2f en %s (Mes %d)", maxTemp, nombres[maxRegion], maxMes);
+    printf("\nMenor temperatura: %.2f en %s (Mes %d)", minTemp, nombres[minRegion], minMes);
+
+    // Comparar SUR, PACIFICO y CARIBE
+    int sur = 2, pac = 4, car = 5;
+    int mayor = sur;
+    if (promedio[pac] > promedio[mayor]) mayor = pac;
+    if (promedio[car] > promedio[mayor]) mayor = car;
+
+    printf("\n\nLa region con mayor promedio anual entre SUR, PACIFICO y CARIBE es: %s (%.2f)\n",
+           nombres[mayor], promedio[mayor]);
+
+    return 0;
+}
+
+
+
+
+P10
+
+
+
+/*. Calcular el monto correspondiente de cada venta. 
+b. Obtener el número de boletos vendidos para cada una de las localidades.
+c. Obtener la recaudación total. */
+
+int main() {
+    float L[7]; // precios de localidades L1..L6 (índice 1..6)
+    int boletos[7] = {0}; // acumulador de boletos por localidad
+    int CLA, CAN;
+    float monto, recaudacion = 0;
+
+    // Lectura de precios
+    for (int i = 1; i <= 6; i++) {
+        printf("Ingrese precio de localidad L%d: ", i);
+        scanf("%f", &L[i]);
+    }
+
+    // Lectura de ventas
+    printf("Ingrese localidad y cantidad de boletos (0,0 para terminar):\n");
+    while (1) {
+        scanf("%d %d", &CLA, &CAN);
+        if (CLA == 0 && CAN == 0) break;
+
+        monto = L[CLA] * CAN;
+        printf("Monto de la venta: %.2f\n", monto);
+
+        boletos[CLA] += CAN;
+        recaudacion += monto;
+    }
+
+    // Resultados finales
+    printf("\nResumen de ventas:\n");
+    for (int i = 1; i <= 6; i++) {
+        printf("Localidad L%d: %d boletos vendidos\n", i, boletos[i]);
+    }
+    printf("Recaudacion total: %.2f\n", recaudacion);
+
+    return 0;
+}
+
+
+
+
+P11
+
+
+
+
+/*En una bodega en Tarija, Bolivia, manejan información sobre las cantidades producidas de cada tipo de vino en los últimos años. 
+
+a.Total producido de cada tipo de vino en los últimos años.
+b.Total de la producción anual de los últimos años.*/
+
+int main() {
+    int N;
+    printf("Ingrese el número de años: ");
+    scanf("%d", &N);
+
+    float VIN[N][4];          // matriz de producción
+    float TotalTipo[4] = {0}; // acumulador por tipo de vino
+    float TotalAnual[N];      // acumulador por año
+
+    // Inicializar totales anuales
+    for (int i = 0; i < N; i++) {
+        TotalAnual[i] = 0;
+    }
+
+    // Lectura de datos y acumulación
+    for (int i = 0; i < N; i++) {
+        printf("Año %d:\n", i+1);
+        for (int j = 0; j < 4; j++) {
+            printf("Ingrese litros de vino tipo %d: ", j+1);
+            scanf("%f", &VIN[i][j]);
+            TotalTipo[j] += VIN[i][j];
+            TotalAnual[i] += VIN[i][j];
+        }
+    }
+
+    // Resultados
+    printf("\nTotal producido por tipo de vino:\n");
+    for (int j = 0; j < 4; j++) {
+        printf("Tipo %d: %.2f litros\n", j+1, TotalTipo[j]);
+    }
+
+    printf("\nTotal de producción anual:\n");
+    for (int i = 0; i < N; i++) {
+        printf("Año %d: %.2f litros\n", i+1, TotalAnual[i]);
+    }
+
+    return 0;
+}
+
+
+
+
+
+P12
+
+
+
+
+
+/*
+Se dice que un número N es primo si los únicos enteros positivos que lo dividen
+son exactamente 1 y N.*/
+
+
+int main() {
+    int NUM;
+    printf("Ingrese un número entero positivo: ");
+    scanf("%d", &NUM);
+
+    printf("Números primos menores que %d:\n", NUM);
+
+    for (int k = 2; k < NUM; k++) {
+        int esPrimo = 1; // asumimos que es primo
+        for (int d = 2; d <= k/2; d++) { // basta revisar hasta k/2
+            if (k % d == 0) {
+                esPrimo = 0;
+                break;
+            }
+        }
+        if (esPrimo) {
+            printf("%d ", k);
+        }
+    }
+
+    printf("\n");
+    return 0;
+}
+
+
+
+
+
+P13
+
+
+#include <stdio.h>
+#include <math.h>
+
+/*Al recibir
+como datos dos números enteros positivos, obtenga e imprima todos los números
+primos gemelos comprendidos entre dichos números. Los primos gemelos son
+una pareja de números primos con una diferencia entre sí de exactamente dos. El
+3 y el 5 son primos gemelos*/
+
+
+// Función para verificar si un número es primo
+int esPrimo(int num) {
+    if (num < 2) return 0;
+    for (int i = 2; i <= sqrt(num); i++) {
+        if (num % i == 0) return 0;
+    }
+    return 1;
+}
+
+int main() {
+    int N1, N2;
+    printf("Ingrese dos números enteros positivos: ");
+    scanf("%d %d", &N1, &N2);
+
+    // Asegurar que N1 sea menor o igual a N2
+    if (N1 > N2) {
+        int temp = N1;
+        N1 = N2;
+        N2 = temp;
+    }
+
+    printf("Primos gemelos entre %d y %d:\n", N1, N2);
+
+    for (int k = N1; k <= N2 - 2; k++) {
+        if (esPrimo(k) && esPrimo(k + 2)) {
+            printf("(%d, %d)\n", k, k + 2);
+        }
+    }
+
+    return 0;
+}
+
+
+
+
+P14
+
+
+
+/*
+
+
+
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    double X, termino, suma;
+    int n = 1, numTerminos = 1;
+
+    printf("Ingrese un valor para X (en radianes): ");
+    scanf("%lf", &X);
+
+    // Primer término de la serie
+    termino = X;
+    suma = termino;
+
+    // Calcular términos hasta que sean suficientemente pequeños
+    while (fabs(termino) > 0.001) {
+        termino = -termino * X * X / ((2 * n) * (2 * n + 1));
+        suma += termino;
+        n++;
+        numTerminos++;
+    }
+
+    printf("sen(%.2f) ≈ %.6f\n", X, suma);
+    printf("Número de términos usados: %d\n", numTerminos);
+
+    return 0;
+}
+
+
+
+P15
+
+/* Calcular el máximo común divisor (MCD) de dos números naturales N1 y N2. El MCD
+entre dos números es el natural más grande que divide a ambos.*/
+
+int main() {
+    int N1, N2, R;
+
+    printf("Ingrese dos números naturales: ");
+    scanf("%d %d", &N1, &N2);
+
+    // Algoritmo de Euclides
+    while (N2 != 0) {
+        R = N1 % N2;
+        N1 = N2;
+        N2 = R;
+    }
+
+    printf("El MCD es: %d\n", N1);
+
+    return 0;
+}
+
+
+
+
+
+P16
+
+
+/*Al recibir
+como dato un número entero positivo, escriir una figura como la que se muestra
+a continuación :
+1
+1 2
+1 2 3
+1 2 3 4
+1 2 3 4 5
+1 2 3 4 5 6
+1 2 3 4 5
+1 2 3 4
+1 2 3
+1 2
+1
+*/
+
+int main() {
+    int N;
+    printf("Ingrese un número entero positivo: ");
+    scanf("%d", &N);
+
+    // Parte creciente
+    for (int i = 1; i <= N; i++) {
+        for (int j = 1; j <= i; j++) {
+            printf("%d ", j);
+        }
+        printf("\n");
+    }
+
+    // Parte decreciente
+    for (int i = N - 1; i >= 1; i--) {
+        for (int j = 1; j <= i; j++) {
+            printf("%d ", j);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
+
+
+
+P17
+
+
+
+
+/*Al recibir como dato un
+número entero positivo, escriba una figura como la que se muestra a continuación:
+1
+1 2 1
+1 2 3 2 1
+1 2 3 4 3 2 1
+1 2 3 4 5 4 3 2 1
+1 2 3 4 5 6 5 4 3 2 1
+1 2 3 4 5 6 7 6 5 4 3 2 1
+*/
+
+
+int main() {
+    int N;
+    printf("Ingrese un número entero positivo: ");
+    scanf("%d", &N);
+
+    for (int i = 1; i <= N; i++) {
+        // Parte creciente
+        for (int j = 1; j <= i; j++) {
+            printf("%d ", j);
+        }
+        // Parte decreciente
+        for (int j = i - 1; j >= 1; j--) {
+            printf("%d ", j);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
+
+
+P18
+
+
+/*Al recibir como dato un
+número entero positivo, escribir una figura como la que se muestra a continuación :
+1 2 3 4 5 6 7 7 6 5 4 3 2 1
+1 2 3 4 5 6 6 5 4 3 2 1
+1 2 3 4 5 5 4 3 2 1
+1 2 3 4 4 3 2 1
+1 2 3 3 2 1
+1 2 2 1
+1 1
+*/
+
+int main() {
+    int N;
+    printf("Ingrese un número entero positivo: ");
+    scanf("%d", &N);
+
+
+    for (int i = N; i >= 1; i--) {
+        // Parte creciente
+        for (int j = 1; j <= i; j++) {
+            printf("%d ", j);
+        }
+        // Parte decreciente
+        for (int j = i; j >= 1; j--) {
+            printf("%d ", j);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
+
+
+
+
+P19
+
+
+
+/*Generar una figura como la que se muestra a continuación:
+1
+2 3 2
+3 4 5 4 3
+4 5 6 7 6 5 4
+5 6 7 8 9 8 7 6 5
+6 7 8 9 0 1 0 8 7 6
+7 8 9 0 1 2 3 2 1 0 9 8 7
+8 9 0 1 2 3 4 5 4 3 2 1 0 9 8
+9 0 1 2 3 4 5 6 7 6 5 4 3 2 1 0 9
+0 1 2 3 4 5 6 7 8 9 8 7 6 5 4 3 2 1 0*/
+
+
+
+int main() {
+    int N;
+    printf("Ingrese un número entero positivo: ");
+    scanf("%d", &N);
+
+    for (int i = 1; i <= N; i++) {
+        // Parte creciente
+        for (int j = i; j <= i + (i - 1); j++) {
+            printf("%d ", j % 10); // módulo 10 para reiniciar en 0
+        }
+        // Parte decreciente
+        for (int j = i + (i - 2); j >= i; j--) {
+            printf("%d ", j % 10);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
+
+
+P20
+
+
+/*Diagrama de flujo  que escriba
+todos los valores positivos de T, P y R que satisfagan la siguiente expresión.
+7*T4 - 6*P3 + 12*R5 < 5850*/
+
+
+
+
+
+int main() {
+    int Tmax, Pmax, Rmax;
+    printf("Ingrese límite máximo para T: ");
+    scanf("%d", &Tmax);
+    printf("Ingrese límite máximo para P: ");
+    scanf("%d", &Pmax);
+    printf("Ingrese límite máximo para R: ");
+    scanf("%d", &Rmax);
+
+    printf("Valores (T, P, R) que cumplen la condición:\n");
+
+    for (int T = 1; T <= Tmax; T++) {
+        for (int P = 1; P <= Pmax; P++) {
+            for (int R = 1; R <= Rmax; R++) {
+                int E = 7 * T * T * T * T - 6 * P * P * P + 12 * R * R * R * R * R;
+                if (E < 5850) {
+                    printf("T=%d, P=%d, R=%d\n", T, P, R);
+                }
+            }
+        }
+    }
+
+    return 0;
+}
+
+
+
+
+
+Tarea:LOTERIA
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+/*Programa que solicita 3 numero al usuario
+Después genere 3 números casuales del 10 al 40
+y compara con los jugados y deciendo si hubo un premio
+*/
+
+
+int main() {
+    int A, B, C;       // números jugados
+    int R1, R2, R3;    // números aleatorios
+
+    // Leer números del usuario
+    printf("Ingrese tres números enteros positivos:\n");
+    scanf("%d %d %d", &A, &B, &C);
+
+    // Inicializar generador de números aleatorios
+    srand(time(NULL));
+
+    // Generar números aleatorios entre 10 y 40
+    R1 = 10 + rand() % 31;
+    R2 = 10 + rand() % 31;
+    R3 = 10 + rand() % 31;
+
+    // Mostrar números generados
+    printf("Números generados: %d, %d, %d\n", R1, R2, R3);
+
+    // Verificar coincidencias
+    if ((A == R1 || A == R2 || A == R3) ||
+        (B == R1 || B == R2 || B == R3) ||
+        (C == R1 || C == R2 || C == R3)) {
+        printf("¡Premio!\n");
+    } else {
+        printf("No hubo premio.\n");
+    }
+
+    return 0;
+}
+
+
