@@ -1,4 +1,4 @@
-
+EJERCICIOS DEL CAP 3
 P1
 
 /*Permitir generar la tabla de multiplicar de un número entero positivo N, comenzando desde 1.*/
